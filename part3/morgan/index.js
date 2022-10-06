@@ -26,15 +26,21 @@ let persons = [
       "id": 4
     }
   ]
+    app.use(express.json())
+
+    morgan.token('valueName', function(req, res) {
+      return '{"name": "' + req.body.name + '" "number": "'
+                + req.body.number + '"}';
+    });
     //Criando log de acesso
     let accessLogStream = fs.createWriteStream(path
                 .join(__dirname, 'access.log'), { flags: 'a' })
-    //Impressão de response para o console com status menor que 400
-    app.use(morgan('dev', {
-      skip: function (request, response) { return response.statusCode < 400 }
-    }))
+    //Impressão de token personalizado
+    app.use(morgan(':method :url :status :res[content-length] :response-time ms :valueName'))
     //Impressão dos request para o access.log
     app.use(morgan('combined', { stream: accessLogStream }))
+
+
     app.get('/', (request, response)=>{
       response.send('<h1>Hello world</h1>')
     })
@@ -61,7 +67,7 @@ let persons = [
       const id = Math.floor(Math.random() * 40)
       return id
     }
-    app.use(express.json())
+
     app.post('/api/persons', (request, response) => {
       const body = request.body
       //Verificando se o campo name foi preenchido
@@ -83,7 +89,7 @@ let persons = [
         id: generateId()
       }
       persons = persons.concat(person)
-      console.log('body ', person);
+      // console.log('body ', person);
       response.json(person)
     })
     //delete
