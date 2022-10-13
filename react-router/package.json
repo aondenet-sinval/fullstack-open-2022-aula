@@ -1,10 +1,8 @@
 {
-  "name": "notes",
+  "name": "react-router",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "axios": "^0.27.2",
-    "cors": "^2.8.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "0.9.5"
@@ -13,11 +11,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "server": "json-server -p3001 --watch db.json"
+    "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "json-server": "^0.17.0"
-  },
-  "proxy": "http://localhost:3001/api/notes"
+    "react-router-dom": "^5.3.3"
+  }
 }

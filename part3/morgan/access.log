@@ -40,3 +40,4 @@
 ::ffff:127.0.0.1 - - [06/Oct/2022:19:18:54 +0000] "POST /api/persons HTTP/1.1" 200 56 "-" "Apache-HttpClient/4.5.5 (Java/17.0.4)"
 ::ffff:127.0.0.1 - - [06/Oct/2022:19:21:32 +0000] "POST /api/persons HTTP/1.1" 200 57 "-" "Apache-HttpClient/4.5.5 (Java/17.0.4)"
 ::ffff:127.0.0.1 - - [06/Oct/2022:19:22:10 +0000] "POST /api/persons HTTP/1.1" 200 56 "-" "Apache-HttpClient/4.5.5 (Java/17.0.4)"
+::1 - - [07/Oct/2022:14:35:58 +0000] "GET /api/notes HTTP/1.1" 404 148 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36"

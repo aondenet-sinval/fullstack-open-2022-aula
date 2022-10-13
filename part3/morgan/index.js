@@ -1,8 +1,11 @@
 const express = require('express')
 const app = express()
 const morgan = require('morgan')
-const fs = require('fs')
-const path = require('path')
+// const fs = require('fs')
+// const path = require('path')
+const cors = require('cors')
+
+app.use(cors)
 
 let persons = [
     {
@@ -32,13 +35,13 @@ let persons = [
       return '{"name": "' + req.body.name + '" "number": "'
                 + req.body.number + '"}';
     });
-    //Criando log de acesso
-    let accessLogStream = fs.createWriteStream(path
-                .join(__dirname, 'access.log'), { flags: 'a' })
+    // //Criando log de acesso
+    // let accessLogStream = fs.createWriteStream(path
+    //             .join(__dirname, 'access.log'), { flags: 'a' })
     //Impressão de token personalizado
     app.use(morgan(':method :url :status :res[content-length] :response-time ms :valueName'))
     //Impressão dos request para o access.log
-    app.use(morgan('combined', { stream: accessLogStream }))
+    // app.use(morgan('combined', { stream: accessLogStream }))
 
 
     app.get('/', (request, response)=>{
@@ -99,7 +102,7 @@ let persons = [
       response.status(204).end()
     })
 
-const PORT = 3001
+const PORT = process.env.PORT || 3001
     app.listen(PORT,()=>{
       console.log(`Server express running on port: ${PORT}.`);
     })
