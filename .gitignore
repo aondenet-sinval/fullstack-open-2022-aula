@@ -16,3 +16,11 @@ yarn-error.log*
 /part2-notes
 /part2/heroku-notes
 /part2/notes/node_modules
+/part2/phonebook/node_modules
+/part3/a-aula/node_modules
+/part3/hapi/node_modules
+/part3/morgan/node_modules
+/part3/notes/node_modules
+/part4/a-aula/node_modules
+/part4/b-aula/node_modules
+/part4/notes/node_modules
